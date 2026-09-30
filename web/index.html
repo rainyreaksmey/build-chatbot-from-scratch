@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Nova: a locally trained Python chatbot" />
+    <meta name="theme-color" content="#08090c" />
+    <title>Nova · Local AI workspace</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <nav class="rail" aria-label="Primary navigation">
+        <a class="brand-mark" href="/" aria-label="Nova home"><span>✦</span></a>
+        <div class="rail-nav">
+          <button class="rail-button is-active" aria-label="Chat" title="Chat"><svg viewBox="0 0 24 24"><path d="M8 18.5 4 21v-5a8 8 0 1 1 4 2.5Z"/></svg></button>
+          <button class="rail-button" aria-label="Explore" title="Explore"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"/></svg></button>
+          <button class="rail-button" aria-label="Activity" title="Activity"><svg viewBox="0 0 24 24"><path d="M4 14h4l2-7 4 11 2-6h4"/></svg></button>
+          <a class="rail-button" href="/docs" target="_blank" rel="noreferrer" aria-label="API documentation" title="API documentation"><svg viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v4h4M9 12h6M9 16h6"/></svg></a>
+        </div>
+        <div class="rail-bottom">
+          <span class="rail-status" title="Local model online"></span>
+          <button class="rail-button" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 13.5v-3l-2-.7-.6-1.4.9-1.9-2.2-2.1-1.8.9-1.5-.6L11 2H8l-.7 2.1-1.5.6-1.9-.9-2.1 2.1.9 1.9-.6 1.5L0 10v3l2.1.7.6 1.5-.9 1.8 2.1 2.2 1.9-.9 1.5.6L8 21h3l.7-2.1 1.5-.6 1.8.9 2.2-2.2-.9-1.8.6-1.5 2.1-.7Z"/></svg></button>
+          <div class="profile" aria-label="Local user">Y</div>
+        </div>
+      </nav>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">LOCAL AI WORKSPACE</p>
+            <button class="model-picker" type="button">Nova Mini <span>Basic</span><svg viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></button>
+          </div>
+          <div class="topbar-actions">
+            <span class="privacy-pill"><i></i> Private · on device</span>
+            <button id="history-toggle" class="round-button mobile-only" aria-label="Open chat history"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+          </div>
+        </header>
+        <div class="notice" role="status"><span>✦</span><p>Nova learns from your local intent dataset. Your conversations never leave this machine.</p><button type="button" aria-label="Dismiss notice">×</button></div>
+        <section class="conversation" aria-label="Chat with Nova">
+          <div id="messages" class="messages" aria-live="polite">
+            <div class="date-label"><span>Today</span></div>
+            <article class="message bot-message">
+              <div class="avatar bot-avatar">✦</div>
+              <div class="message-body">
+                <div class="message-heading"><strong>Nova</strong><span>Local assistant</span></div>
+                <div class="bubble welcome-bubble">
+                  <span class="bubble-kicker">READY TO HELP</span>
+                  <h1>What can we explore today?</h1>
+                  <p>I’m a focused assistant trained on examples you control. Ask about Python, artificial intelligence, or how to teach me something new.</p>
+                  <div class="suggestions">
+                    <button class="prompt-chip"><span>01</span> Explain artificial intelligence</button>
+                    <button class="prompt-chip"><span>02</span> Teach me Python basics</button>
+                    <button class="prompt-chip"><span>03</span> How can I train you?</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <form id="chat-form" class="composer">
+            <div class="composer-box">
+              <button class="attach-button" type="button" aria-label="Attach file" title="Attachments coming soon"><svg viewBox="0 0 24 24"><path d="m12 17 5.5-5.5a3.5 3.5 0 0 0-5-5L6 13a5 5 0 0 0 7 7l6-6"/></svg></button>
+              <label class="sr-only" for="message-input">Your message</label>
+              <textarea id="message-input" rows="1" maxlength="1000" placeholder="Ask Nova anything…" required></textarea>
+              <button id="send-button" class="send-button" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24"><path d="m5 12 14-7-4 14-3-5-7-2Z"/><path d="m12 14 7-9"/></svg></button>
+            </div>
+            <div class="composer-meta"><span><kbd>Enter</kbd> send · <kbd>Shift</kbd> + <kbd>Enter</kbd> new line</span><span id="character-count">0 / 1000</span></div>
+          </form>
+        </section>
+      </main>
+
+      <aside id="history-panel" class="history-panel" aria-label="Chat history">
+        <div class="history-header"><div><p class="eyebrow">YOUR SPACE</p><h2>Conversations</h2></div><button id="history-close" class="round-button mobile-only" aria-label="Close chat history">×</button></div>
+        <button id="new-chat-button" class="new-chat-button" type="button"><span>+</span> New conversation</button>
+        <div class="history-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="history-search" type="search" placeholder="Search conversations" aria-label="Search conversations" /></div>
+        <div class="history-group">
+          <div class="history-title"><span>Recent</span><b id="recent-count">3</b></div>
+          <div id="recent-list" class="history-list">
+            <button class="history-item is-active" data-prompt="How can I train you?"><span class="history-icon">✦</span><span><strong>Training your chatbot</strong><small>How can I train you?</small></span><b>•••</b></button>
+            <button class="history-item" data-prompt="What is artificial intelligence?"><span class="history-icon">AI</span><span><strong>Understanding AI</strong><small>Artificial intelligence basics</small></span><b>•••</b></button>
+            <button class="history-item" data-prompt="Teach me Python"><span class="history-icon">Py</span><span><strong>Learning Python</strong><small>Start with the fundamentals</small></span><b>•••</b></button>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-top"><span class="mini-orb">✦</span><div><strong>Nova is online</strong><small id="model-summary">Loading model details…</small></div></div>
+          <div class="meter"><i></i></div>
+          <p><span>Engine</span><b>Naive Bayes</b></p><p><span>Storage</span><b>Local only</b></p>
+        </div>
+        <a class="docs-link" href="/docs" target="_blank" rel="noreferrer"><span>API documentation</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </aside>
+      <button id="history-backdrop" class="history-backdrop" aria-label="Close chat history"></button>
+    </div>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

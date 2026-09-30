@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Nova chatbot architecture</title>
+  <desc id="desc">A message travels from the web interface through FastAPI to a trained intent model and returns a reply.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07110f"/><stop offset="1" stop-color="#10251f"/></linearGradient>
+    <linearGradient id="mint" x1="0" x2="1"><stop stop-color="#62f5b5"/><stop offset="1" stop-color="#45cce8"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#62f5b5"/></marker>
+  </defs>
+  <rect width="1200" height="675" rx="32" fill="url(#bg)"/>
+  <circle cx="1060" cy="90" r="170" fill="#6a4fd1" opacity=".09"/>
+  <circle cx="100" cy="610" r="220" fill="#3ff0a6" opacity=".06"/>
+  <text x="70" y="80" fill="#62f5b5" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">NOVA CHATBOT</text>
+  <text x="70" y="125" fill="#effff8" font-family="Arial,sans-serif" font-size="34" font-weight="700">How a message becomes an answer</text>
+  <g font-family="Arial,sans-serif">
+    <g transform="translate(70 225)">
+      <rect width="230" height="210" rx="24" fill="#10231f" stroke="#315349"/>
+      <circle cx="115" cy="66" r="32" fill="#1b3c32"/><path d="M99 69c12 10 20 10 32 0M101 58h2m24 0h2" stroke="#62f5b5" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <text x="115" y="132" text-anchor="middle" fill="#effff8" font-size="24" font-weight="700">Web interface</text>
+      <text x="115" y="163" text-anchor="middle" fill="#91aaa1" font-size="16">HTML · CSS · JavaScript</text>
+    </g>
+    <g transform="translate(370 225)">
+      <rect width="230" height="210" rx="24" fill="#10231f" stroke="#315349"/>
+      <path d="M78 88h74M94 60l-28 28 28 28M136 60l28 28-28 28" stroke="url(#mint)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="115" y="132" text-anchor="middle" fill="#effff8" font-size="24" font-weight="700">FastAPI</text>
+      <text x="115" y="163" text-anchor="middle" fill="#91aaa1" font-size="16">Validation · JSON · routes</text>
+    </g>
+    <g transform="translate(670 225)">
+      <rect width="230" height="210" rx="24" fill="#10231f" stroke="#315349"/>
+      <g fill="none" stroke="#62f5b5" stroke-width="5"><circle cx="83" cy="65" r="12"/><circle cx="146" cy="55" r="12"/><circle cx="117" cy="103" r="12"/><path d="M94 69l41-10M91 75l18 20M140 65l-16 28"/></g>
+      <text x="115" y="132" text-anchor="middle" fill="#effff8" font-size="24" font-weight="700">Intent model</text>
+      <text x="115" y="163" text-anchor="middle" fill="#91aaa1" font-size="16">Naive Bayes prediction</text>
+    </g>
+    <g transform="translate(970 225)">
+      <rect width="160" height="210" rx="24" fill="#153c2e" stroke="#62f5b5"/>
+      <path d="M45 54h70v65H77l-24 19 5-19H45z" fill="none" stroke="#62f5b5" stroke-width="5" stroke-linejoin="round"/>
+      <text x="80" y="161" text-anchor="middle" fill="#effff8" font-size="24" font-weight="700">Reply</text>
+    </g>
+    <path d="M310 330h48" stroke="#62f5b5" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M610 330h48" stroke="#62f5b5" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M910 330h48" stroke="#62f5b5" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="370" y="500" width="530" height="82" rx="18" fill="#0c1c19" stroke="#29483f"/>
+    <text x="400" y="535" fill="#a991ff" font-size="16" font-weight="700" letter-spacing="2">TRAINING SOURCE</text>
+    <text x="400" y="562" fill="#dbece6" font-size="19">data/intents.json → token counts → saved model</text>
+    <path d="M635 500v-48" stroke="#a991ff" stroke-width="3" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  </g>
+</svg>

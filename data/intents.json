@@ -1,0 +1,54 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi", "hey", "good morning", "good evening", "how are you", "hello chatbot"],
+      "responses": ["Hello! What would you like to learn?", "Hi! Ask me about Python or AI.", "Hey there — how can I help?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you", "talk later", "I have to go", "catch you later"],
+      "responses": ["Goodbye! Keep building.", "See you next time!", "Take care — come back with more questions."]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "that helped", "awesome thanks", "great answer", "I appreciate it"],
+      "responses": ["You're welcome!", "Happy to help.", "Any time — keep experimenting!"]
+    },
+    {
+      "tag": "identity",
+      "patterns": ["what is your name", "who are you", "are you a robot", "tell me about yourself", "what should I call you"],
+      "responses": ["I'm Nova, a small Python chatbot trained to recognize intents.", "Call me Nova. I run locally using a Naive Bayes model."]
+    },
+    {
+      "tag": "capabilities",
+      "patterns": ["what can you do", "how can you help", "show me your features", "what do you know", "help me"],
+      "responses": ["I can answer focused questions from my training data. Edit data/intents.json and retrain me to add skills.", "I classify your message by intent, then choose a matching response. Ask about Python, AI, or training."]
+    },
+    {
+      "tag": "python",
+      "patterns": ["what is Python", "teach me Python", "how do I learn coding", "Python programming", "why use Python", "is Python easy"],
+      "responses": ["Python is a readable programming language widely used for AI, APIs, automation, and data science.", "Start Python with variables, conditions, loops, functions, and small projects. Consistent practice matters more than memorizing syntax."]
+    },
+    {
+      "tag": "ai_basics",
+      "patterns": ["what is AI", "explain artificial intelligence", "how does machine learning work", "what is a model", "tell me about machine learning"],
+      "responses": ["AI systems perform tasks that usually require human intelligence. Machine learning models learn statistical patterns from examples.", "A model is a mathematical system fitted to training data so it can make predictions on new inputs."]
+    },
+    {
+      "tag": "training",
+      "patterns": ["how do I train you", "train the chatbot", "add training data", "make the model smarter", "improve chatbot answers", "retrain model"],
+      "responses": ["Add patterns and responses to data/intents.json, then run `python train.py`. Restart the server after training.", "Better examples make this bot better: add varied phrases for each intent, retrain, and test with messages it has not seen."]
+    },
+    {
+      "tag": "super_ai",
+      "patterns": ["can I build super AI", "make an AGI", "build the smartest AI", "create super intelligence", "train a huge language model"],
+      "responses": ["A super-intelligent AI is not a realistic beginner project. Start with a focused chatbot, measure it carefully, then upgrade it with retrieval or an existing language model.", "Training a frontier language model from scratch requires enormous data and computing. This project teaches the core loop on a safe, understandable scale."]
+    },
+    {
+      "tag": "api",
+      "patterns": ["what is FastAPI", "how does the API work", "chat endpoint", "use the REST API", "backend server"],
+      "responses": ["FastAPI exposes the chatbot through POST /api/chat. It also serves the browser interface and interactive documentation at /docs.", "The browser sends JSON to the FastAPI backend, which runs the local model and returns a response with its intent and confidence."]
+    }
+  ]
+}
